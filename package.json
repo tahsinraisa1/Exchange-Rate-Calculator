@@ -14,5 +14,17 @@
     "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Raisa",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^4.1.1",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "live-server": "^1.2.1"
+  }
 }
