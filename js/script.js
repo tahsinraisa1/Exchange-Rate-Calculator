@@ -29,7 +29,6 @@ function convert_rate() {
        if(key!==to_currency){
         options += '<option value="'+key+'">'+key+'</option>';
         to_currency_ID.insertAdjacentHTML('beforeend', options);
-
         options='';
        }
       }
