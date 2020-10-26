@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rate Calculator</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+
+  <body>
+    <h1>Currency Converter</h1>
+    <img class="money-img" src="img/icons8-euro-pound-exchange-100.png" alt="Currency icon">
+    <p class="description">Input to convert and see exchange rates</p>
+    <div class="container">
+      <div class="text-from">From</div>
+      <div class="currency from">
+        <select id="currency-one">
+          <option value="AED" selected>AED</option>
+        </select>
+        <input type="number" id="amount-one" placeholder="0" value="1">
+      </div>
+
+      <div class="conversion-rate">
+        <div class="rate-text">Converison Rate: </div><br>
+        <div class="rate" id="rate"></div>
+      </div>
+
+      <div class="text-to">To</div>
+      <div class="currency to">
+        <select id="currency-two">
+          <option value="AED" selected>AED</option>
+        </select>
+        <p id="amount-two"></p>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
