@@ -37,7 +37,7 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
       font-size: 20px;
       animation: init3 2s;
     }
-    .money-img {
+    .logo {
       width: 120px;
       animation: init 0.5s;
     }
@@ -180,7 +180,7 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
           width: 550px;
 
           
-        .money-img,
+        .logo,
         .description {
           text-align: center;
         }
@@ -205,7 +205,7 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
         .rate {
           font-size: 1.2rem;
         }
-        .money-img{
+        .logo{
           height: 20px;
         }
 
