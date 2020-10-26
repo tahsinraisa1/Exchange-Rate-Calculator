@@ -1,30 +1,51 @@
-const currencyEl_one = document.getElementById('currency-one');
-const amountEl_one = document.getElementById('amount-one');
-const currencyEl_two = document.getElementById('currency-two');
-const amountEl_two = document.getElementById('amount-two');
+const from_currency_ID = document.getElementById('currency-one');
+const from_amount_ID = document.getElementById('amount-one');
+const to_currency_ID = document.getElementById('currency-two');
+const to_amount_ID = document.getElementById('amount-two');
 
-const rateEl = document.getElementById('rate');
+const rate_ID = document.getElementById('rate');
 
-// Fetch exchange rates and update the DOM
-function caclulate() {
-  const currency_one = currencyEl_one.value;
-  const currency_two = currencyEl_two.value;
+let options='';
 
-  fetch(`https://api.exchangerate-api.com/v4/latest/${currency_one}`)
-    .then(res => res.json())
+function convert_rate() {
+  const from_currency = from_currency_ID.value;
+  const to_currency = to_currency_ID.value;
+  
+  fetch(`https://api.exchangerate-api.com/v4/latest/${from_currency}`)
+    .then(resolve => { return resolve.json() })
     .then(data => {
-      // console.log(data);
-      const rate = data.rates[currency_two];
 
-      rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+      const len = Object.keys(data.rates).length;
+      const rate = data.rates[to_currency];
+      
+      for(const [key, value] of Object.entries(data.rates)){
+       // console.log(key, value);
+       if(key!==from_currency){
+        options += '<option value="'+key+'">'+key+'</option>';
 
-      amountEl_two.innerHTML = (amountEl_one.value * rate).toFixed(2);
-    });
+        from_currency_ID.insertAdjacentHTML('beforeend', options);
+        options='';
+       }
+       if(key!==to_currency){
+        options += '<option value="'+key+'">'+key+'</option>';
+        to_currency_ID.insertAdjacentHTML('beforeend', options);
+
+        options='';
+       }
+      }
+      to_amount_ID.innerHTML = (from_amount_ID.value * rate).toFixed(3);
+
+      rate_ID.innerText = `1 ${from_currency} = ${rate} ${to_currency}`;
+
+      
+    })
+    .catch(error => alert(error));
+
 }
+convert_rate();
 
-// Event listeners
-currencyEl_one.addEventListener('change', caclulate);
-amountEl_one.addEventListener('input', caclulate);
-currencyEl_two.addEventListener('change', caclulate);
+from_currency_ID.addEventListener('change', convert_rate);
+to_currency_ID.addEventListener('change', convert_rate);
+from_amount_ID.addEventListener('input', convert_rate);
 
-caclulate();
+
