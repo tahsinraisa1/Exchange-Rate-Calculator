@@ -4,7 +4,6 @@ const currencyEl_two = document.getElementById('currency-two');
 const amountEl_two = document.getElementById('amount-two');
 
 const rateEl = document.getElementById('rate');
-const swap = document.getElementById('swap');
 
 // Fetch exchange rates and update the DOM
 function caclulate() {
@@ -19,7 +18,7 @@ function caclulate() {
 
       rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
 
-      amountEl_two.value = (amountEl_one.value * rate).toFixed(2);
+      amountEl_two.innerHTML = (amountEl_one.value * rate).toFixed(2);
     });
 }
 
@@ -27,12 +26,5 @@ function caclulate() {
 currencyEl_one.addEventListener('change', caclulate);
 amountEl_one.addEventListener('input', caclulate);
 currencyEl_two.addEventListener('change', caclulate);
-
-swap.addEventListener('click', () => {
-  const temp = currencyEl_one.value;
-  currencyEl_one.value = currencyEl_two.value;
-  currencyEl_two.value = temp;
-  caclulate();
-});
 
 caclulate();
