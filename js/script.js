@@ -34,7 +34,7 @@ function convert_rate() {
       }
       to_amount_ID.innerHTML = '= ' + (from_amount_ID.value * rate).toFixed(3);
 
-      rate_ID.innerText = `1 ${from_currency} = ${rate} ${to_currency}`;
+      rate_ID.textContent = `1 ${from_currency} = ${rate} ${to_currency}`;
 
       
     })
