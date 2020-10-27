@@ -1,6 +1,8 @@
 # Exchange-Rate-Calculator
-A web app using JavaScript
+A web app using JavaScript.
 
-Use the following commands to run:
+NPM packages needed to run.
+
+Use the following commands:
 
 *npm install* > *npm start*
