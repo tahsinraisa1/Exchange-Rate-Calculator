@@ -30,7 +30,7 @@ const convert_rate = function() {
         options='';
        }
       }
-      to_amount_ID.innerHTML = '= ' + (from_amount_ID.value * rate).toFixed(3);
+      to_amount_ID.innerHTML = (from_amount_ID.value * rate).toFixed(3);
 
       rate_ID.textContent = `1 ${from_currency} = ${rate} ${to_currency}`;
 

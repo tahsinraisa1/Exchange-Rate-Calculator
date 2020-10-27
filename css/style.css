@@ -5,7 +5,10 @@
   box-sizing: border-box; }
 
 body {
-  background-image: linear-gradient(to right, rgba(236, 234, 234, 0.829), rgba(214, 210, 210, 0.1));
+  background-image: linear-gradient(to top, rgba(59, 59, 59, 0.829), rgba(245, 241, 241, 0.822)), url("/img/back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
   width: 100vw;
   display: flex;
@@ -47,16 +50,18 @@ body {
   100% {
     opacity: 1; } }
   body .container {
-    width: 60%;
+    width: 50%;
     display: grid;
-    padding-top: 50px;
+    padding: 40px 40px 20px 40px;
+    background-color: #f1f1f1;
+    border-radius: 15px;
     gap: 10px;
     grid-template-rows: 0.1fr 1fr .5fr;
     grid-template-columns: repeat(2, 1fr); }
     body .container .text-from,
     body .container .text-to {
       text-transform: uppercase;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       grid-row: 1/2; }
     body .container .text-from {
       grid-column: 1/2; }
@@ -98,54 +103,74 @@ body {
         font-size: 1.5rem;
         text-align: right;
         width: fit-content;
-        margin: 2px 10px; }
-      body .container .currency input {
+        margin: 2px 10px;
         border: 1px solid #414040;
         border-radius: 2px;
         width: 60%;
-        height: 60%; }
+        height: 35%; }
+      body .container .currency p {
+        text-align: right;
+        padding: 10px; }
     body .container .conversion-rate {
       grid-row: 3/-1;
       grid-column: 1/-1;
-      text-align: center; }
+      gap: 5px;
+      text-align: center;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr; }
       body .container .conversion-rate .rate-text {
+        grid-row: 1/2;
         padding-top: 20px;
         font-size: 1.8rem;
         color: #606b66; }
       body .container .conversion-rate .rate {
+        grid-row: 2/-1;
+        grid-column: 1/-1;
         color: #000;
+        text-align: center;
+        background-color: #d4d1d1;
+        border-radius: 5px;
         font-size: 1.5rem;
-        padding: 0 10px;
-        animation: init2 0.5s;
+        padding: 15px;
+        margin: 0;
         transition: transform .2s; }
       body .container .conversion-rate .rate:hover {
-        transform: scale(1.2); }
-    @media (max-width: 1200px) {
-      body .container body {
-        width: 1100px; }
-        body .container body .currency input,
-        body .container body .currency p {
-          width: 300px; } }
-    @media (max-width: 600px) {
-      body .container body {
-        width: 550px; }
-        body .container body select,
-        body .container body .rate {
-          font-size: .2rem; }
-        body .container body .logo,
-        body .container body .description {
-          text-align: center; }
-        body .container body .currency input,
-        body .container body .currency p {
-          font-size: 1.2rem; } }
-    @media (max-width: 490px) {
-      body .container h1,
-      body .container .description,
+        transform: scale(1.05); }
+
+@media only screen and (max-width: 780px) {
+  body h1 {
+    font-size: 1.5rem;
+    padding: 2px; }
+  body .description {
+    font-size: 1.2rem; }
+  body .container {
+    width: 100%; } }
+
+@media only screen and (max-width: 380px) {
+  body {
+    width: 100vw; }
+    body h1 {
+      font-size: 1.6rem;
+      padding: 0; }
+    body .description {
+      font-size: 1.3rem; }
+    body .container {
+      border-radius: 5px;
+      width: 105%;
+      padding: 10px 10px 5px 10px;
+      font-size: .8rem; }
       body .container .text-from,
-      body .container .text-to,
-      body .container .rate-text {
+      body .container .text-to {
         font-size: 1.2rem; }
-      body .container .currency select,
-      body .container .currency input,
-      body .container .currency p {
-        font-size: 1rem; } }
+      body .container .conversion-rate .rate {
+        font-size: 1.1rem;
+        padding: 15px; } }
+
+@media only screen and (max-width: 290px) {
+  body .container .currency select,
+  body .container .currency input,
+  body .container .currency p {
+    font-size: 1rem; }
+  body .container .currency p {
+    padding: 5px; } }

@@ -1,5 +1,5 @@
-$color-background: rgba(236, 234, 234, 0.829);
-$color-background-1: rgba(214, 210, 210, 0.1);
+$color-background: rgba(59, 59, 59, 0.829);
+$color-background-1: rgba(245, 241, 241, 0.822);
 $primary-color: #606b66;
 $secondary-color: #414040;
 $font-small: 10px;
@@ -8,16 +8,20 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
 :root {
   font-size: $font-small;
 }
+
   * {
     box-sizing: border-box;
   }
   
   body {
-    background-image: linear-gradient(to right, $color-background, $color-background-1);
+    background-image: linear-gradient(to top, $color-background, $color-background-1), url('/img/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
     width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -67,9 +71,11 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
 }
 
     .container {
-      width: 60%;
+      width: 50%;
       display: grid;
-      padding-top: 50px;
+      padding: 40px 40px 20px 40px;
+      background-color: #f1f1f1;
+      border-radius: 15px;
       gap: 10px;
       grid-template-rows: 0.1fr 1fr .5fr;
       grid-template-columns: repeat(2, 1fr);
@@ -77,7 +83,7 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
       .text-from,
       .text-to {
         text-transform: uppercase;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         grid-row: 1/2;
       }
       .text-from {   
@@ -136,90 +142,116 @@ $bg-url: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F
             text-align: right;
             width: fit-content;
             margin: 2px 10px;
-         }
-         input {
-           border: 1px solid $secondary-color;
-           border-radius: 2px;  
+            border: 1px solid $secondary-color;
+           border-radius: 2px;
            width: 60%;
-           height: 60%;
+           height: 35%;
+         }
+         p {
+           text-align: right;
+           padding: 10px;
+
+           
          }
       }
       
       .conversion-rate {
         grid-row: 3/-1;
         grid-column: 1/-1;
+        gap: 5px;
         text-align: center;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         
         .rate-text {
+          grid-row: 1/2;
           padding-top: 20px;
           font-size: 1.8rem;
           color: $primary-color;
         }
         .rate {
+          grid-row: 2/-1;
+          grid-column: 1/-1;
           color: #000;
+          text-align: center;
+          background-color: #d4d1d1;
+          border-radius: 5px;
           font-size: 1.5rem;
-          padding: 0 10px;
-          animation: init2 0.5s;
+          padding: 15px;
+          margin: 0;
+          //animation: init2 0.5s;
           transition: transform .2s;
         }
 
         .rate:hover {
-          transform: scale(1.2); 
+          transform: scale(1.05); 
         }
       }
+    }      
+  }
+  @media only screen and (max-width: 780px) {
+    body {
+      h1 {
+        font-size: 1.5rem;
+        padding: 2px;
+      }
+      .description { font-size: 1.2rem; }
+      .container {
+        width: 100%;
 
-    
-      @media (max-width: 1200px) {
+      }
 
-        body {
-          width: 1100px;
+    }
+  }
+  @media only screen and (max-width: 380px) {
+    body {
+      width: 100vw;
+      
+      h1 {
+        font-size: 1.6rem;
+        padding: 0;
+      }
+      .description { font-size: 1.3rem; }
+      .container {
+        border-radius: 5px;
+        width: 105%;
+        padding: 10px 10px 5px 10px;
+        font-size: .8rem;
 
-          .currency input,
-          .currency p {
-            width: 300px;
+        .text-from,
+        .text-to {
+          font-size: 1.2rem;
+        }
+
+        .conversion-rate {
+          .rate {
+            font-size: 1.1rem;
+            padding: 15px;
           }
         }
-        
       }
-      @media (max-width: 600px) {
-        body {
-          width: 550px;
 
+    }
+  }
+  @media only screen and (max-width: 290px) {
+    body {
+      .container {
+        .currency {
           select,
-          .rate {
-            font-size: .2rem;
+          input,
+          p {
+            font-size: 1rem;
+            //padding: 5px 20px 10px 10px;
           }
           
-        .logo,
-        .description {
-          text-align: center;
-        }
-        .currency input,
-        .currency p {
-          //width: 200px;
-          font-size: 1.2rem;
+          p {
+            padding: 5px;
           }
+         
         }
-
-      }
-      @media (max-width: 490px) {
-        h1,
-        .description,
-        .text-from,
-        .text-to,
-        .rate-text {
-          font-size: 1.2rem;
-        }
-        .currency select,
-        .currency input,
-        .currency p {
-          font-size: 1rem;
-        }
-               
-
       }
     }
-      
   }
 
   
