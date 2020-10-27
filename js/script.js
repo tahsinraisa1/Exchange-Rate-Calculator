@@ -1,16 +1,14 @@
-const from_currency_ID = document.getElementById('currency-one');
-const from_amount_ID = document.getElementById('amount-one');
-const to_currency_ID = document.getElementById('currency-two');
-const to_amount_ID = document.getElementById('amount-two');
-
-const rate_ID = document.getElementById('rate');
-
 let options='';
 
-function convert_rate() {
-  const from_currency = from_currency_ID.value;
-  const to_currency = to_currency_ID.value;
-  
+const rate_ID = document.getElementById('rate');
+const from_currency_ID = document.getElementById('from-currency');
+const from_amount_ID = document.getElementById('from-value');
+const to_currency_ID = document.getElementById('to-currency');
+const to_amount_ID = document.getElementById('to-value');
+
+const convert_rate = function() {  
+  const from_currency = from_currency_ID.value, to_currency = to_currency_ID.value;
+
   fetch(`https://api.exchangerate-api.com/v4/latest/${from_currency}`)
     .then(resolve => { return resolve.json() })
     .then(data => {
@@ -36,7 +34,6 @@ function convert_rate() {
 
       rate_ID.textContent = `1 ${from_currency} = ${rate} ${to_currency}`;
 
-      
     })
     .catch(error => alert(error));
 
